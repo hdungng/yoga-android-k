@@ -1,7 +1,6 @@
-package com.admin.yogaapplication.adapters;
+package com.admin.yogaapplication.extras;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,13 +8,12 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.admin.yogaapplication.R;
-import com.admin.yogaapplication.entity.Course;
+import com.admin.yogaapplication.models.Course;
 
 import java.util.ArrayList;
 
 public class CourseAdapter extends BaseAdapter {
 
-    //Dữ liệu liên kết bởi Adapter là một mảng các sản phẩm
     private Activity activity;
     final ArrayList<Course> listCourse;
 
@@ -26,20 +24,16 @@ public class CourseAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        //Trả về tổng số phần tử, nó được gọi bởi ListView
         return listCourse.size();
     }
 
     @Override
     public Object getItem(int position) {
-        //Trả về dữ liệu ở vị trí position của Adapter, tương ứng là phần tử
-        //có chỉ số position trong listProduct
         return listCourse.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        //Trả về một ID của phần
         return position;
     }
 
@@ -48,10 +42,8 @@ public class CourseAdapter extends BaseAdapter {
 
         LayoutInflater inflater = activity.getLayoutInflater();
 
-        // Đổ dữ liệu vào biến View, view này chính là những gì nằm trong item_name.xml
         convertView = inflater.inflate(R.layout.item_view, null);
 
-        //Bind sữ liệu phần tử vào View
         Course course = (Course) getItem(position);
 
         ((TextView) convertView.findViewById(R.id.name)).setText(course.getName());

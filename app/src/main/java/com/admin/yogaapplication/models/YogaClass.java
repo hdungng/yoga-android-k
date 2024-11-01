@@ -1,4 +1,4 @@
-package com.admin.yogaapplication.entity;
+package com.admin.yogaapplication.models;
 
 public class YogaClass {
     private String id;

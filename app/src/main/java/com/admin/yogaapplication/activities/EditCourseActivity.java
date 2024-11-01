@@ -1,10 +1,9 @@
-package com.admin.yogaapplication.views;
+package com.admin.yogaapplication.activities;
 
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,16 +12,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.admin.yogaapplication.DbHelper;
+import com.admin.yogaapplication.extras.DbHelper;
 import com.admin.yogaapplication.MainActivity;
 import com.admin.yogaapplication.R;
-import com.admin.yogaapplication.entity.Course;
+import com.admin.yogaapplication.models.Course;
 
 public class EditCourseActivity extends AppCompatActivity {
 

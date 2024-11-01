@@ -2,39 +2,31 @@ package com.admin.yogaapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.cardview.widget.CardView;
 
-import com.admin.yogaapplication.views.EditClassActivity;
-import com.admin.yogaapplication.views.EditCourseActivity;
-import com.admin.yogaapplication.views.ViewClassActivity;
-import com.admin.yogaapplication.views.ViewCourseActivity;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.admin.yogaapplication.activities.EditClassActivity;
+import com.admin.yogaapplication.activities.EditCourseActivity;
+import com.admin.yogaapplication.activities.ViewClassActivity;
+import com.admin.yogaapplication.activities.ViewCourseActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    private FloatingActionButton button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FrameLayout frame_course = findViewById(R.id.image_frame_course);
-        FrameLayout frame_class = findViewById(R.id.image_frame_class);
-        button = findViewById(R.id.fab);
+        CardView card_course = findViewById(R.id.view_courses_card);
+        CardView card_class = findViewById(R.id.view_classes_card);
+        CardView card_add_course = findViewById(R.id.add_course_card);
+        CardView card_add_class = findViewById(R.id.add_class_card);
 
 
-        frame_course.setOnClickListener(new View.OnClickListener() {
+        card_course.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ViewCourseActivity.class);
@@ -42,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        frame_class.setOnClickListener(new View.OnClickListener() {
+        card_class.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ViewClassActivity.class);
@@ -51,35 +43,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        button.setOnClickListener(new View.OnClickListener() {
-            private Button addCourseBtn, addClassBtn;
-
+        card_add_course.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this);
-                View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.bottomsheet, null);
-                bottomSheetDialog.setContentView(view1);
-                bottomSheetDialog.show();
-
-                addCourseBtn = bottomSheetDialog.findViewById(R.id.add_course);
-                addClassBtn = bottomSheetDialog.findViewById(R.id.add_class);
-
-                addCourseBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(MainActivity.this, EditCourseActivity.class);
-                        startActivity(intent);
-                    }
-                });
-
-                addClassBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(MainActivity.this, EditClassActivity.class);
-                        startActivity(intent);
-                    }
-                });
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditCourseActivity.class);
+                startActivity(intent);
             }
         });
+
+        card_add_class.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditClassActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }

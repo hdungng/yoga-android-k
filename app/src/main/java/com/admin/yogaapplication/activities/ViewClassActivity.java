@@ -1,11 +1,9 @@
-package com.admin.yogaapplication.views;
+package com.admin.yogaapplication.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Debug;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -13,15 +11,12 @@ import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.admin.yogaapplication.DbHelper;
+import com.admin.yogaapplication.extras.DbHelper;
 import com.admin.yogaapplication.R;
-import com.admin.yogaapplication.adapters.ClassAdapter;
-import com.admin.yogaapplication.adapters.CourseAdapter;
-import com.admin.yogaapplication.entity.Course;
-import com.admin.yogaapplication.entity.YogaClass;
+import com.admin.yogaapplication.extras.ClassAdapter;
+import com.admin.yogaapplication.models.YogaClass;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ViewClassActivity extends AppCompatActivity {
 
@@ -29,7 +24,7 @@ public class ViewClassActivity extends AppCompatActivity {
     SearchView searchView;
     ClassAdapter classViewAdapter;
     ListView listViewClass;
-    private DbHelper dbHelper;
+    DbHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.admin.yogaapplication.adapters;
+package com.admin.yogaapplication.extras;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -10,14 +10,11 @@ import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.admin.yogaapplication.R;
-import com.admin.yogaapplication.entity.YogaClass;
+import com.admin.yogaapplication.models.YogaClass;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ClassAdapter extends BaseAdapter implements Filterable {
-
-    //Dữ liệu liên kết bởi Adapter là một mảng các sản phẩm
 
     private Activity activity;
     private ArrayList<YogaClass> listClass;
@@ -31,20 +28,16 @@ public class ClassAdapter extends BaseAdapter implements Filterable {
 
     @Override
     public int getCount() {
-        //Trả về tổng số phần tử, nó được gọi bởi ListView
         return listClass.size();
     }
 
     @Override
     public Object getItem(int position) {
-        //Trả về dữ liệu ở vị trí position của Adapter, tương ứng là phần tử
-        //có chỉ số position trong listProduct
         return listClass.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        //Trả về một ID của phần
         return position;
     }
 
@@ -52,10 +45,8 @@ public class ClassAdapter extends BaseAdapter implements Filterable {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = activity.getLayoutInflater();
 
-        // Đổ dữ liệu vào biến View, view này chính là những gì nằm trong item_name.xml
         convertView = inflater.inflate(R.layout.item_view, null);
 
-        //Bind sữ liệu phần tử vào View
         YogaClass yogaClass = (YogaClass) getItem(position);
         ((TextView) convertView.findViewById(R.id.name)).setText(yogaClass.getName());
         ((TextView) convertView.findViewById(R.id.description)).setText(yogaClass.getTeacher());

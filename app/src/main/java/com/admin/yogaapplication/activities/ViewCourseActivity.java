@@ -1,28 +1,25 @@
-package com.admin.yogaapplication.views;
+package com.admin.yogaapplication.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.admin.yogaapplication.DbHelper;
-import com.admin.yogaapplication.MainActivity;
-import com.admin.yogaapplication.adapters.CourseAdapter;
+import com.admin.yogaapplication.extras.DbHelper;
+import com.admin.yogaapplication.extras.CourseAdapter;
 
 import com.admin.yogaapplication.R;
-import com.admin.yogaapplication.entity.Course;
+import com.admin.yogaapplication.models.Course;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ViewCourseActivity extends AppCompatActivity {
 
-    private DbHelper dbHelper;
+    DbHelper dbHelper;
     ArrayList<Course> courses;
     CourseAdapter courseViewAdapter;
     ListView listViewCourse;

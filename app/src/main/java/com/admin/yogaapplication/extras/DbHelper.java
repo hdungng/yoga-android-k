@@ -1,4 +1,4 @@
-package com.admin.yogaapplication;
+package com.admin.yogaapplication.extras;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.admin.yogaapplication.entity.Course;
-import com.admin.yogaapplication.entity.YogaClass;
+import com.admin.yogaapplication.models.Course;
+import com.admin.yogaapplication.models.YogaClass;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

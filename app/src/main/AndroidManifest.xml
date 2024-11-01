@@ -13,16 +13,16 @@
         android:theme="@style/Theme.YogaApplication"
         tools:targetApi="31">
         <activity
-            android:name=".views.EditClassActivity"
+            android:name=".activities.EditClassActivity"
             android:exported="false" />
         <activity
-            android:name=".views.EditCourseActivity"
+            android:name=".activities.EditCourseActivity"
             android:exported="false" />
         <activity
-            android:name=".views.ViewClassActivity"
+            android:name=".activities.ViewClassActivity"
             android:exported="false" />
         <activity
-            android:name=".views.ViewCourseActivity"
+            android:name=".activities.ViewCourseActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

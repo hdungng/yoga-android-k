@@ -1,11 +1,10 @@
-package com.admin.yogaapplication.views;
+package com.admin.yogaapplication.activities;
 
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,16 +14,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.admin.yogaapplication.DbHelper;
+import com.admin.yogaapplication.extras.DbHelper;
 import com.admin.yogaapplication.MainActivity;
 import com.admin.yogaapplication.R;
-import com.admin.yogaapplication.entity.YogaClass;
+import com.admin.yogaapplication.models.YogaClass;
 
 import java.util.ArrayList;
 
@@ -126,11 +121,7 @@ public class EditClassActivity extends AppCompatActivity {
 
         editName.setText(yogaClass.getName());
 
-        Log.d("Class", yogaClass.getCourseId());
-
         int coursePosition = courseIds.indexOf(yogaClass.getCourseId());
-
-        Log.d("Class", "" + coursePosition);
 
         spinnerCourses.setSelection(coursePosition);
         editDate.setText(yogaClass.getDate());
@@ -175,7 +166,6 @@ public class EditClassActivity extends AppCompatActivity {
         }
 
         if (classId != null) {
-//            Update class
             SQLiteDatabase db = dbHelper.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put(DbHelper.COLUMN_CLASS_ID, classId);
